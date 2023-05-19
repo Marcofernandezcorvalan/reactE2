@@ -10,7 +10,18 @@ export const LayoutStyled = styled.div`
 `;
 
 export const ContentContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 	height: calc(100vh - 120px);
+	width: 100%;
+`;
+
+export const FooterStyled = styled.footer`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: x-small;
 `;
 
 const Layout = ({ children }) => {
@@ -18,7 +29,7 @@ const Layout = ({ children }) => {
 		<LayoutStyled>
 			<Navbar />
 			<ContentContainer>{children}</ContentContainer>
-			<p>footer</p>
+			<FooterStyled>Proyecto numero dos de React.</FooterStyled>
 		</LayoutStyled>
 	);
 };

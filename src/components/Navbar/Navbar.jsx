@@ -4,32 +4,38 @@ import { styled } from "styled-components";
 
 export const NavbarStyled = styled.header`
 	display: flex;
-	height: 30px;
+	height: 50px;
+	/* width: 100%; */
 	background: #292929;
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
+	padding: 30px 50px;
 `;
 
 export const LinkContainer = styled.ul`
 	display: flex;
-	gap: 10px;
+	gap: 30px;
 `;
 
 export const NavLinkStyled = styled(NavLink)`
 	color: white;
 	font-weight: 600;
 	font-size: 15px;
+	text-decoration: none;
 	&.active {
 		color: #ff4747;
 	}
 `;
 
+export const ImgStyled = styled.img`
+	height: 30px;
+`;
+
 const Navbar = () => {
 	return (
 		<NavbarStyled>
-			<img src="../../../public/vite.svg" alt="logo" />
+			<ImgStyled src="../../../public/LogoDefault.png" alt="Logo"></ImgStyled>
+			{/* <img src="../../../public/LogoDefault.png" alt="logo" /> */}
 			<LinkContainer>
 				<NavLinkStyled to="/">Home</NavLinkStyled>
 				<NavLinkStyled to="/todo">ToDo</NavLinkStyled>
