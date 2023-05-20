@@ -34,7 +34,7 @@ export const ImgStyled = styled.img`
 const Navbar = () => {
 	return (
 		<NavbarStyled>
-			<ImgStyled src="../../../public/LogoDefault.png" alt="Logo"></ImgStyled>
+			<ImgStyled src="/LogoDefault.png" alt="Logo"></ImgStyled>
 			{/* <img src="../../../public/LogoDefault.png" alt="logo" /> */}
 			<LinkContainer>
 				<NavLinkStyled to="/">Home</NavLinkStyled>
