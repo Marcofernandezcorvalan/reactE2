@@ -25,6 +25,8 @@ export const FooterStyled = styled.footer`
 `;
 
 const Layout = ({ children }) => {
+	// const Contexto = useContext(Contexto);
+
 	return (
 		<LayoutStyled>
 			<Navbar />

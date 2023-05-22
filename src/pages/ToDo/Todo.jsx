@@ -44,6 +44,7 @@ export const ContenedorTareas = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	font-weight: 600;
+	margin-top: 30px;
 `;
 
 export const ContenedorForm = styled.div`
@@ -56,17 +57,22 @@ export const ContenedorForm = styled.div`
 	border-radius: 10px;
 `;
 
+export const SmallStyled = styled.small`
+	color: red;
+	font-size: 10px;
+	align-self: center;
+	font-weight: 400;
+`;
+
 const Todo = () => {
 	const [tarea, setTarea] = useState("");
 	const [listadoTareas, setListadoTareas] = useState([]);
-	// const [error, setError] = useState(null);
+	const [empty, setEmpty] = useState("");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (tarea === "") {
-			alert("Ingrese una tarea por favor");
-			return;
-		}
+
+		isEmpty(tarea);
 
 		const nuevaTarea = {
 			id: Math.random(),
@@ -77,20 +83,22 @@ const Todo = () => {
 
 		const temp = [...listadoTareas, nuevaTarea];
 		setListadoTareas(temp);
+		localStorage.setItem(tarea, e.target.value);
 		setTarea("");
-		console.log(listadoTareas);
 	};
 
 	const handleChange = (e) => {
 		setTarea(e.target.value);
+		setEmpty("");
 	};
 
-	// const isEmpty = (input) => {
-	// 	if (tarea === "") return "Es obligatorio completar este Campo";
-	// };
-
 	const eliminar = () => {
+		alert("¿Desea Eliminar Todas las Tareas?");
 		setListadoTareas([]);
+	};
+
+	const isEmpty = (tarea) => {
+		if (tarea === "") return setEmpty("Es obligatorio completar este Campo");
 	};
 
 	return (
@@ -111,9 +119,9 @@ const Todo = () => {
 					Eliminar
 				</ClickButtonStyled>
 			</ContenedorForm>
-
+			<SmallStyled>{empty}</SmallStyled>
 			<ContenedorTareas>
-				{listadoTareas.map((tarea) => {
+				{listadoTareas?.map((tarea) => {
 					return (
 						<Tarea key={tarea.id} tarea={tarea}>
 							{tarea.tarea}
